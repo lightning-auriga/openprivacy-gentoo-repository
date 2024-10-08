@@ -106,7 +106,7 @@ src_compile() {
 }
 
 src_install() {
-	mkdir -p "${D}/usr/include/cwtch" "${D}/usr/lib64/cwtch" || die
+	mkdir -p "${D}/usr/include/cwtch" "${D}/usr/lib/cwtch" || die
 	cp "${WORKDIR}/build/linux/libCwtch.h" "${D}/usr/include/cwtch" || die
 	cp "${WORKDIR}/build/linux/libCwtch.x64.so" "${D}/usr/lib/cwtch/libCwtch.so" || die
 }
