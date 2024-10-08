@@ -30,7 +30,7 @@ HOMEPAGE="https://git.openprivacy.ca/cwtch.im/autobindings"
 # Point to any required sources; these will be automatically downloaded by
 # Portage
 inherit go-module
-SRC_URI="https://build.openprivacy.ca/files/libCwtch-autobindings-2024-10-03-14-22-v0.1.3-9-gc85523b/libCwtch-sources-v${PV}-9-gc85523b.tar.xz"
+SRC_URI="https://build.openprivacy.ca/files/libCwtch-autobindings-2024-10-03-14-22-v${PV}-9-gc85523b/libCwtch-sources-v${PV}-9-gc85523b.tar.xz"
 
 # Source directory; the dir where the sources can be found (automatically
 # unpacked) inside ${WORKDIR}.  The default value for S is ${WORKDIR}/${P}
