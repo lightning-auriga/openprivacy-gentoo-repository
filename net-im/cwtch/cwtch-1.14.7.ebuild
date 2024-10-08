@@ -77,7 +77,7 @@ KEYWORDS="~amd64"
 # had installed on your system when you tested the package.  Then
 # other users hopefully won't be caught without the right version of
 # a dependency.
-RDEPEND="net-im/cwtch-autobindings"
+RDEPEND=">=net-im/cwtch-autobindings-0.1.3"
 
 # The following src_install function is implemented as default by portage, so
 # you only need to call it, if you need different behaviour.
@@ -93,7 +93,7 @@ src_install() {
 	cp -r data "${D}/usr/share/cwtch" || die
 
 	mkdir -p "${D}/usr/lib/cwtch" || die
-	rm -Rf lib/Tor lib/tor || die
+	rm -Rf lib/Tor lib/tor lib/libCwtch* || die
 	cp -r lib/* "${D}/usr/lib/cwtch" || die
 
 	mkdir -p "${D}/usr/share/applications" || die
