@@ -73,9 +73,11 @@ SLOT="0"
 # Do not use KEYWORDS="*"; this is not valid in an ebuild context.
 KEYWORDS="~amd64"
 
-RDEPENDS="media-libs/glu"
+RDEPENDS="media-libs/glu dev-vcs/git"
 
 src_install() {
-	mkdir -p "${D}/usr/bin" || die
-	cp -R "${WORKDIR}/flutter/bin/"* "${D}/usr/bin" || die
+	mkdir -p "${D}/usr/share" || die
+	cp -R "${WORKDIR}/flutter" "${D}/usr/share" || die
+	echo -e "#!/usr/bin/env bash\n../share/flutter/bin/flutter \"$@\"" > /usr/bin/flutter || die
+	chmod u+x /usr/bin/flutter
 }
