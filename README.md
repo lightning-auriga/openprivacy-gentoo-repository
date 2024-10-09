@@ -34,8 +34,8 @@ To install cwtch with portage:
 ```bash
 ## unmask on amd64
 root # echo 'net-im/cwtch-autobindings ~amd64' > /etc/portage/package.accept_keywords/cwtch.conf
-root # echo 'net-im/cwtch ~amd64' >> /etc/portage/package.accept_keywords/cwtch.conf
-root # emerge -a net-im/cwtch
+root # echo 'net-im/cwtch-bin ~amd64' >> /etc/portage/package.accept_keywords/cwtch.conf
+root # emerge -a net-im/cwtch-bin
 ```
 
 ## Removal of cwtch
@@ -43,7 +43,7 @@ root # emerge -a net-im/cwtch
 To uninstall cwtch with portage:
 
 ```bash
-root # emerge --depclean -a net-im/cwtch
+root # emerge --depclean -a net-im/cwtch-bin
 root # emerge --depclean -a
 ```
 
