@@ -71,13 +71,18 @@ SLOT="0"
 # exists for.  If the package was for an x86 binary package, then
 # KEYWORDS would be set like this: KEYWORDS="-* x86"
 # Do not use KEYWORDS="*"; this is not valid in an ebuild context.
-KEYWORDS="~amd64"
+KEYWORDS=""
 
 RDEPENDS="media-libs/glu dev-vcs/git"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-prevent-update.patch
+)
+
 src_install() {
 	mkdir -p "${D}/usr/share" || die
+	mkdir -p "${D}/usr/bin" || die
 	cp -R "${WORKDIR}/flutter" "${D}/usr/share" || die
-	echo -e "#!/usr/bin/env bash\n../share/flutter/bin/flutter \"$@\"" > /usr/bin/flutter || die
-	chmod u+x /usr/bin/flutter
+	echo -e "#!/usr/bin/env bash\\n/usr/share/flutter/bin/flutter \"$@\"" > "${D}/usr/bin/flutter" || die
+	chmod +x "${D}/usr/bin/flutter"
 }
